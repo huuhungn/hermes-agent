@@ -1,0 +1,30 @@
+name: follow-up
+title: Follow-up
+repo: https://github.com/huuhungn/hermes-plugin-follow-up
+sha: 6e2c690f4005987f9daece2ce34359cf76b6d8a3
+description: >-
+  Session-scoped, clickable follow-up prompts for Hermes Desktop. Renders
+  model-authored directives without additional model calls. Disclosure: clicking
+  inserts text for review; Ctrl/Cmd-click requests submission in the owning chat.
+  Does not configure the model's prompt policy or edit user instructions.
+maintainer: anhtahaylove
+tier: community
+category: desktop
+version: "1.0.0"
+requires_hermes: ">=0.22.5"
+docs_url: https://github.com/huuhungn/hermes-plugin-follow-up#readme
+platforms: []
+known_issues:
+  - >-
+    Requires a Desktop bundle with host.composer and owning-session directive
+    props (Hermes commit c78ca093aa4b6759c055c3ed2bfbe7f741cf0292 or later).
+    Early 0.22.5 canaries may predate these APIs; actions disable on incompatible
+    hosts rather than falling back to the active chat.
+  - >-
+    Desktop-only renderer: model instructions for followup directives must be
+    configured separately. No automatic instruction edits or extra model calls.
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []

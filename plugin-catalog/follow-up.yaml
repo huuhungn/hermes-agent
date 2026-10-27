@@ -1,7 +1,7 @@
 name: follow-up
 title: Follow-up
 repo: https://github.com/huuhungn/hermes-plugin-follow-up
-sha: 6e2c690f4005987f9daece2ce34359cf76b6d8a3
+sha: 0f322b490bde9720f25d38943e90028499901be9
 description: >-
   Session-scoped, clickable follow-up prompts for Hermes Desktop. Renders
   model-authored directives without additional model calls. Disclosure: clicking

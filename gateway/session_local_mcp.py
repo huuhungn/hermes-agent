@@ -28,6 +28,7 @@ logger = logging.getLogger(__name__)
 PRIVATE_KEY = ('editor_mcp',)
 _HELD_LOCK = threading.Lock()
 _RELIST_TIMEOUT = 5  # seconds an admission start waits on a held server's tools/list
+_CONNECT_TIMEOUT = 15  # seconds an editor MCP server gets to start; 5 cancelled cold npx starts under load
 
 
 def _json(value):
@@ -137,7 +138,7 @@ def _configs(servers, names, cwd):
             if spec['type'] == 'sse':
                 config['transport'] = 'sse'
         # One bounded eager discovery; no lazy or late schema refresh.
-        config.update(connect_timeout=5, tool_timeout=30, lazy=False)
+        config.update(connect_timeout=_CONNECT_TIMEOUT, tool_timeout=30, lazy=False)
         configs[name] = config
     return configs
 

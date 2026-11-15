@@ -12,7 +12,7 @@ _FLAGS = ('yolo', 'safe_mode', 'ignore_user_config', 'ignore_rules', 'accept_hoo
 
 
 def _agent(created):
-    async def rpc(method, **params):
+    async def rpc(method, _timeout=None, **params):  # the client budget is never on the wire
         if method == 'runtime.describe':
             return {'session_create': {'sources': ['acp']}, 'capabilities': ['acp-editor-policy-v1']}
         if method == 'config.set':  # the new session's live-reasoning flag (#134889 ACP-4)
